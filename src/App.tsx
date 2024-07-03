@@ -2,10 +2,9 @@ import Header from "./components/header"
 
 function App() {
   return (
-      <div>
-        <Header/>
-        <p>Hello, World!</p>
-      </div>
+    <div>
+      <Header />
+    </div>
   )
 }
 
