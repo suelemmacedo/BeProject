@@ -9,11 +9,11 @@ const HeaderStyle = styled.header`
     gap: 10px;
     opacity: 0px;
   }
-
+  
   display: flex;
   align-items: center;
   justify-content: start;
-  height: 60px;
+  height: auto;
   background: #ffffff;
   padding: 0 32px;
   box-shadow: 0px 2px 8px 0px #00000033;
