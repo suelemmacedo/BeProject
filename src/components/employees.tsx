@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import { Employee } from '../types/Employee';
 import { formatPhoneNumber } from '../utils/formatPhoneNumber';
 
-const EmployeeCardContainer = styled.div`
+const EmployeeCardContainer = styled.tbody`
   text-align: center;
   box-shadow: 0px 1px 2px 0px #00000033;
-  margin: 16px 0;
-
   table {
     width: 100%;
     border-collapse: collapse;
@@ -16,38 +14,28 @@ const EmployeeCardContainer = styled.div`
   tr {
     td {
       vertical-align: middle;
-      font-family: Roboto, sans-serif;
+      font-family: Roboto;
       font-size: 16px;
       font-weight: 400;
       line-height: 19px;
       letter-spacing: 0em;
-      padding: 8px 16px;
-      border-bottom: 1px solid #dfdfdf;
-    }
-
-    &:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    td:last-child {
-      cursor: pointer;
     }
   }
-
   th {
-    font-family: Roboto, sans-serif;
+    font-family: Roboto;
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
     letter-spacing: 0em;
     text-align: left;
     padding: 8px 16px;
-    background-color: #eaeaea;
+    background: linear-gradient(180deg, #5A84C0 0%, #594ED2 100%);
+    color: white;
     border-bottom: 2px solid #dfdfdf;
   }
 `;
 
-// Informações principais do funcionário
+
 const EmployeeInfo = styled.tr<{ open: boolean }>`
   height: 49px;
 
@@ -73,7 +61,7 @@ const EmployeeInfo = styled.tr<{ open: boolean }>`
   }
 `;
 
-// Informações detalhadas do funcionário
+
 const EmployeeDropdownInfo = styled.tr<{ open: boolean }>`
   height: ${({ open }) => (open ? '100%' : '0px')};
 
@@ -114,10 +102,9 @@ const EmployeeDropdownInfo = styled.tr<{ open: boolean }>`
       flex-direction: row;
       border-bottom: 1px dashed #dfdfdf;
       margin: 0;
-      padding: 8px 0;
 
       h1 {
-        font-family: Roboto, sans-serif;
+        font-family: Roboto;
         font-size: 16px;
         font-weight: 500;
         line-height: 19px;
@@ -125,7 +112,7 @@ const EmployeeDropdownInfo = styled.tr<{ open: boolean }>`
       }
 
       h2 {
-        font-family: Roboto, sans-serif;
+        font-family: Roboto;
         font-size: 16px;
         font-weight: 400;
         line-height: 19px;
@@ -156,6 +143,15 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee }) => {
   return (
     <EmployeeCardContainer>
       <table>
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Data de Admissão</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
         <tbody>
           <EmployeeInfo open={open}>
             <td className="photo">
@@ -179,7 +175,7 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ employee }) => {
           )}
         </tbody>
       </table>
-    </EmployeeCardContainer>
+    </EmployeeCardContainer >
   );
 };
 
