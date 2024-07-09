@@ -3,9 +3,16 @@ import styled from 'styled-components';
 import { Employee } from '../types/Employee';
 import { formatPhoneNumber } from '../utils/formatPhoneNumber';
 
-const EmployeeCardContainer = styled.tbody`
-  text-align: center;
+const EmployeeCardContainer = styled.div`
+ text-align: center;
   box-shadow: 0px 1px 2px 0px #00000033;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px; /* Defina um máximo de largura para a tabela */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  overflow-x: auto; /* Permite rolagem horizontal se necessário */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -38,7 +45,6 @@ const EmployeeCardContainer = styled.tbody`
 
 const EmployeeInfo = styled.tr<{ open: boolean }>`
   height: 49px;
-
   .photo {
     img {
       width: 40px;
