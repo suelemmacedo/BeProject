@@ -1,101 +1,145 @@
-import styled from "styled-components";
-import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import searchIcon from '../assets/Default.png';
 
-const Container = styled.div`
+const Container = styled.section`
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #f5f5f8;
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 12px 16px;
-  width: 100%;
-  margin: 0 auto;
-  background: #F0F0F0;
+  gap: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
+`;
+
+const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 `;
 
 const Title = styled.h1`
-  font-family: 'Roboto';
-  font-size: 24px;
-  font-weight: 500;
-  color: #1C1C1C;
-  align-self: flex-start;
-  line-height: 28,13px;
-  width: 139px;
-  height: 28px;
-  left: 32px;
-  top:104px;
-  
-  @media (min-width: 768px) {
-    margin: 0;
-  }
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #25213b;
 `;
 
-const InputWrapper = styled.div`
+const Subtitle = styled.p`
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #777487;
+`;
+
+const InputWrapper = styled.form`
   position: relative;
-  width: 287px;
-  height: 48px;
-  margin-top: 16px;
-  align-self: flex-start;
+  width: 100%;
+  height: 46px;
 
   @media (min-width: 768px) {
-    margin-top: 0;
-    width: 300px;
-    margin-right: 16px;
+    max-width: 320px;
   }
 
   input {
     width: 100%;
     height: 100%;
-    padding: 0 32px 0 16px;
-    border: 1px solid #dfdfdf;
+    padding: 0 48px 0 16px;
+    border: 1px solid #dedce8;
     border-radius: 8px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #FFFFFF;
+    background: #fff;
+    color: #25213b;
+    font-size: 15px;
     box-sizing: border-box;
+    outline: none;
+
+    &:focus {
+      border-color: #6656c8;
+      box-shadow: 0 0 0 3px #6656c820;
+    }
   }
-  
-  img {
+
+  button {
     position: absolute;
     top: 50%;
     right: 8px;
     transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: none;
     cursor: pointer;
+  }
+
+  button img {
+    width: 22px;
+    height: 22px;
   }
 `;
 
+interface SearchInputProps {
+  title: string;
+  value: string;
+  onSearch: (value: string) => void;
+}
 
-function SearchInput({ title }: { title: string }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get("search") || "";
-  const [inputText, setInputText] = useState<string>(search);
+function SearchInput({
+  title,
+  value,
+  onSearch,
+}: SearchInputProps) {
+  const [inputText, setInputText] = useState(value);
+
+  useEffect(() => {
+    setInputText(value);
+  }, [value]);
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    onSearch(inputText.trim());
+  }
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setInputText(event.target.value);
+  }
 
   return (
     <Container>
-      <Title>{title}</Title>
-      <InputWrapper>
+      <Heading>
+        <Title>{ title }</Title>
+        <Subtitle>
+          Consulte os colaboradores cadastrados
+        </Subtitle>
+      </Heading>
+
+      <InputWrapper onSubmit={ handleSubmit }>
         <input
-          type="text"
-          placeholder="Pesquisar"
-          value={inputText}
-          onChange={e => setInputText(e.target.value)}
-          onKeyDown={e => {
-            if (e.key === "Enter") {
-              setSearchParams({ search: inputText });
-            }
-          }}
+          type="search"
+          aria-label="Pesquisar funcionários"
+          placeholder="Pesquisar funcionário..."
+          value={ inputText }
+          onChange={ handleInputChange }
         />
-        <img
-          src="src/assets/Default.png"
-          alt="Icon"
-          onClick={() => setSearchParams({ search: inputText })}
-        />
+
+        <button type="submit" aria-label="Buscar">
+          <img src={ searchIcon } alt="" />
+        </button>
       </InputWrapper>
     </Container>
   );

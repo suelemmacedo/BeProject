@@ -1,0 +1,19 @@
+
+{
+  "extends": "@trybe/eslint-config-frontend/typescript",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json",
+    "tsconfigRootDir": "."
+  },
+  "rules": {
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "allowArrowFunctions": false,
+        "allowFunctions": true,
+        "allowBind": false
+      }
+    ]
+  }
+}
+

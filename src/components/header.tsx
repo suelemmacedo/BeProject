@@ -1,28 +1,41 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import logo from '../assets/Header.png';
 
 const HeaderStyle = styled.header`
-  img {
-    width: Fixed(44px);
-    height: 35px;
-    top: 12.08px;
-    left: 32px;
-    gap: 10px;
-    opacity: 0px;
-  }
-  
+  width: 100%;
+  height: 76px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px #00000015;
   display: flex;
   align-items: center;
-  justify-content: start;
-  height: auto;
-  background: #ffffff;
-  padding: 0 32px;
-  box-shadow: 0px 2px 8px 0px #00000033;
+`;
+
+const HeaderContent = styled.div`
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  width: 110px;
+  height: 60px;
+  display: block;
+  object-fit: contain;
+
+  @media (max-width: 767px) {
+    width: 90px;
+    height: 50px;
+  }
 `;
 
 function Header() {
   return (
     <HeaderStyle>
-      <img src="src/assets/Header.png" alt="Logo" />
+      <HeaderContent>
+        <Logo src={ logo } alt="Logo BeProject" />
+      </HeaderContent>
     </HeaderStyle>
   );
 }

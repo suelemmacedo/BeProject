@@ -1,0 +1,124 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Ana Silva",
+      "job": "Desenvolvedora Front-end",
+      "admission_date": "2024-03-15",
+      "phone": "11987654321",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "2",
+      "name": "Carlos Oliveira",
+      "job": "Analista de Sistemas",
+      "admission_date": "2023-08-10",
+      "phone": "21998765432",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "3",
+      "name": "Mariana Costa",
+      "job": "Analista DevOps",
+      "admission_date": "2025-01-20",
+      "phone": "31987654321",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "4",
+      "name": "Lucas Ferreira",
+      "job": "Engenheiro Cloud",
+      "admission_date": "2024-06-12",
+      "phone": "11900000004",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "5",
+      "name": "Juliana Martins",
+      "job": "Analista de Segurança",
+      "admission_date": "2023-11-06",
+      "phone": "21900000005",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "6",
+      "name": "Rafael Almeida",
+      "job": "Desenvolvedor Back-end",
+      "admission_date": "2025-02-17",
+      "phone": "31900000006",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "7",
+      "name": "Beatriz Santos",
+      "job": "UX/UI Designer",
+      "admission_date": "2024-09-23",
+      "phone": "11900000007",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "8",
+      "name": "Pedro Henrique",
+      "job": "Administrador Linux",
+      "admission_date": "2022-05-09",
+      "phone": "81900000008",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "9",
+      "name": "Camila Rodrigues",
+      "job": "Engenheira de Dados",
+      "admission_date": "2025-04-14",
+      "phone": "61900000009",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "10",
+      "name": "Gabriel Souza",
+      "job": "Analista de Infraestrutura",
+      "admission_date": "2023-07-03",
+      "phone": "41900000010",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "11",
+      "name": "Fernanda Lima",
+      "job": "Product Owner",
+      "admission_date": "2024-01-29",
+      "phone": "11900000011",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "12",
+      "name": "Thiago Ribeiro",
+      "job": "Engenheiro DevOps",
+      "admission_date": "2022-10-18",
+      "phone": "51900000012",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "13",
+      "name": "Larissa Gomes",
+      "job": "Analista de QA",
+      "admission_date": "2025-06-02",
+      "phone": "71900000013",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "14",
+      "name": "Bruno Carvalho",
+      "job": "Arquiteto de Soluções",
+      "admission_date": "2021-12-13",
+      "phone": "11900000014",
+      "image": "/avatar.svg"
+    },
+    {
+      "id": "15",
+      "name": "Patrícia Nunes",
+      "job": "Scrum Master",
+      "admission_date": "2024-08-05",
+      "phone": "85900000015",
+      "image": "/avatar.svg"
+    }
+  ]
+}
