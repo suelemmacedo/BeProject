@@ -1,17 +1,19 @@
 import type { Employee } from '../types/Employee';
 
-const API_URL = 'http://localhost:3001';
+interface EmployeesResponse {
+  employees: Employee[];
+}
 
 export async function fetchEmployees(
   signal?: AbortSignal,
 ): Promise<Employee[]> {
-  const response = await fetch(`${API_URL}/employees`, { signal });
+  const response = await fetch('/db.json', { signal });
 
   if (!response.ok) {
-    throw new Error('Não foi possível carregar os funcionários.');
+    throw new Error('Erro ao carregar funcionários.');
   }
 
-  const data: Employee[] = await response.json();
+  const data: EmployeesResponse = await response.json();
 
-  return data;
+  return data.employees;
 }
