@@ -1,20 +1,12 @@
-import { BrowserRouter } from "react-router-dom";
-import Header from "./components/header";
-import SearchInput from "./components/searchInput";
-import EmployeeList from "./components/employeeList";
+import { BrowserRouter } from 'react-router-dom';
+import EmployeePage from './pages/EmployeePage';
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Header />
-        <SearchInput title={"Funcionários"} />
-        <EmployeeList />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <EmployeePage />
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-
